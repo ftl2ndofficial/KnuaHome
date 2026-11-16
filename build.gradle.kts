@@ -1,9 +1,10 @@
 plugins {
     java
+    id("com.gradleup.shadow") version "9.3.1"
 }
 
 group = "com.ftl2nd"
-version = "1.0.0"
+version = "1.0.1"
 description = "KnuaHome - Multi-version Paper & Folia Home Plugin (1.21 - 26.3) with NMS Core"
 
 java {
@@ -103,6 +104,7 @@ dependencies {
     compileOnly("net.luckperms:api:5.4")
     compileOnly("me.clip:placeholderapi:2.11.6")
     compileOnly("com.viaversion:viaversion-api:5.2.1")
+    implementation("org.bstats:bstats-bukkit:3.2.1")
 
     testImplementation(fileTree(defaultPaperDir) { include("**/*.jar") })
     testImplementation("net.luckperms:api:5.4")
@@ -124,10 +126,33 @@ val nmsSourceSets = nmsSpecs.map { (name, ver) ->
 }
 
 tasks.named<Jar>("jar") {
+    archiveClassifier.set("plain")
     from("LICENSE")
     nmsSourceSets.forEach { ss ->
         from(ss.output)
     }
+}
+
+tasks.shadowJar {
+    archiveClassifier.set("")
+    configurations = project.configurations.runtimeClasspath.map { setOf(it) }
+
+    dependencies {
+        // Only merge bStats into the final jar, no other dependencies
+        exclude { it.moduleGroup != "org.bstats" }
+    }
+
+    // Relocate bStats into KnuaHome's package to avoid conflicts with other plugins using bStats
+    relocate("org.bstats", "${project.group}.bstats")
+
+    from("LICENSE")
+    nmsSourceSets.forEach { ss ->
+        from(ss.output)
+    }
+}
+
+tasks.named("assemble") {
+    dependsOn(tasks.shadowJar)
 }
 
 dependencies {

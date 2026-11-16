@@ -4,6 +4,8 @@ import com.ftl2nd.nms.NmsManager;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SimplePie;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,6 +15,8 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public final class KnuaHomePlugin extends JavaPlugin {
 
+    private static final int BSTATS_PLUGIN_ID = 35366;
+
     private NmsManager nmsManager;
     private MessageUtil messageUtil;
     private HomeDatabase database;
@@ -20,6 +24,7 @@ public final class KnuaHomePlugin extends JavaPlugin {
     private HomeGuiManager guiManager;
     private HomeDialogManager dialogManager;
     private Object placeholderExpansion;
+    private Metrics metrics;
 
     @Override
     public void onEnable() {
@@ -56,6 +61,16 @@ public final class KnuaHomePlugin extends JavaPlugin {
             this.placeholderExpansion = PlaceholderBridge.register(this, database, rankResolver);
         }
 
+        this.metrics = new Metrics(this, BSTATS_PLUGIN_ID);
+        this.metrics.addCustomChart(new SimplePie(
+            "nms_version",
+            () -> nmsManager.getCore().getVersion().getVersionString()
+        ));
+        this.metrics.addCustomChart(new SimplePie(
+            "dialog_supported",
+            () -> String.valueOf(nmsManager.getCore().supportsDialog())
+        ));
+
         getLogger().info(
             "KnuaHome enabled! NMS=" + nmsManager.getCore().getVersion().getVersionString()
                 + ", Dialog=" + nmsManager.getCore().supportsDialog()
@@ -83,6 +98,10 @@ public final class KnuaHomePlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        if (metrics != null) {
+            metrics.shutdown();
+            metrics = null;
+        }
         if (placeholderExpansion != null) {
             PlaceholderBridge.unregister(placeholderExpansion);
             placeholderExpansion = null;

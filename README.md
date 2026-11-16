@@ -19,7 +19,7 @@ Plugin Home đa phiên bản cho **Paper & Folia** (`1.21` – `26.3`), hỗ tr�
    - **Server**: Paper or Folia `1.21` – `26.3` (`api-version: '1.21'`).
    - **Java**: Java `21+` for `1.21` – `1.21.11`, or Java `25` for `26.1` – `26.3`.
    - **Optional (`softdepend`)**: `LuckPerms`, `PlaceholderAPI`, `ViaVersion`.
-2. Download or build `KnuaHome-1.0.0.jar` and place it in your server's `plugins/` folder.
+2. Download or build `KnuaHome-1.0.1.jar` and place it in your server's `plugins/` folder.
 3. Start or restart the server to generate `plugins/KnuaHome/config.yml`, `messages.yml`, and `homes.db`.
 4. Edit `config.yml` (ranks, `max-homes`, `default-homes`) and `messages.yml` (MiniMessage / `&` legacy text and sounds), then apply changes with `/knuahome reload`.
 
@@ -52,15 +52,15 @@ Plugin Home đa phiên bản cho **Paper & Folia** (`1.21` – `26.3`), hỗ tr�
 
 ```bash
 # Linux / macOS
-./gradlew clean build --no-daemon
+./gradlew clean shadowJar --no-daemon
 ```
 
 ```powershell
 # Windows (PowerShell)
-.\gradlew.bat clean build --no-daemon
+.\gradlew.bat clean shadowJar --no-daemon
 ```
 
-- Output JAR: `build/libs/KnuaHome-1.0.0.jar`
+- Output JAR: `build/libs/KnuaHome-1.0.1.jar` *(also built by `./gradlew clean build`)*
 
 ### License
 Licensed under the **KnuaHome Educational & Reference License** ([LICENSE](./LICENSE)):
@@ -81,7 +81,7 @@ Licensed under the **KnuaHome Educational & Reference License** ([LICENSE](./LIC
    - **Server**: Paper hoặc Folia `1.21` – `26.3` (`api-version: '1.21'`).
    - **Java**: Java `21+` cho `1.21` – `1.21.11`, hoặc Java `25` cho `26.1` – `26.3`.
    - **Plugin hỗ trợ thêm (`softdepend`, không bắt buộc)**: `LuckPerms`, `PlaceholderAPI`, `ViaVersion`.
-2. Tải hoặc tự build file `KnuaHome-1.0.0.jar` và chép vào thư mục `plugins/` của server.
+2. Tải hoặc tự build file `KnuaHome-1.0.1.jar` và chép vào thư mục `plugins/` của server.
 3. Khởi động / khởi động lại server để tạo `plugins/KnuaHome/config.yml`, `messages.yml` và `homes.db`.
 4. Chỉnh sửa giới hạn rank trong `config.yml` hoặc thông báo/âm thanh (MiniMessage & mã màu `&`) trong `messages.yml`, rồi chạy `/knuahome reload`.
 
@@ -114,15 +114,15 @@ Licensed under the **KnuaHome Educational & Reference License** ([LICENSE](./LIC
 
 ```bash
 # Linux / macOS
-./gradlew clean build --no-daemon
+./gradlew clean shadowJar --no-daemon
 ```
 
 ```powershell
 # Windows (PowerShell)
-.\gradlew.bat clean build --no-daemon
+.\gradlew.bat clean shadowJar --no-daemon
 ```
 
-- File JAR xuất ra tại: `build/libs/KnuaHome-1.0.0.jar`
+- File JAR xuất ra tại: `build/libs/KnuaHome-1.0.1.jar` *(hoặc chạy `./gradlew clean build`)*
 
 ### Giấy Phép
 Dự án sử dụng **KnuaHome Educational & Reference License** ([LICENSE](./LICENSE)):
