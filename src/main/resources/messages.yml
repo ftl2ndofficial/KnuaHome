@@ -1,0 +1,129 @@
+# =============================================================
+# KnuaHome Messages & Sounds Configuration
+# Supports MiniMessage (<gray>, <red>, <aqua>, <#RRGGBB>) and Legacy (&7, &c, &#RRGGBB)
+# =============================================================
+
+settings:
+  # Send feedback messages to chat
+  send-chat: true
+  # Send feedback messages to the ActionBar simultaneously (DonutSMP style)
+  send-actionbar: true
+
+# -------------------------------------------------------------
+# Dialog UI Text & Tooltips (1.21.6+)
+# -------------------------------------------------------------
+dialog:
+  title: "<white>Homes"
+  home-button-label: "<white>%name%"
+  home-button-tooltip: "<white>%name%\n<gray>Click to teleport"
+  new-home-button-label: "<dark_gray>New Home"
+  new-home-button-tooltip: "<white>New Home\n<gray>Click to set home"
+  locked-button-label: "<red>Locked"
+  locked-button-tooltip: "<white>Buy <aqua>Rank<white> for more home slots"
+  show-more-button-label: "<white>Show More"
+
+# -------------------------------------------------------------
+# Fallback Inventory GUI Text & Lore (1.21 - 1.21.5 or older ViaVersion clients)
+# -------------------------------------------------------------
+gui:
+  title: "Homes"
+  manage-title: "%name%"
+  icon-picker-title: "Home Icons %page%/%max_page%"
+
+  home-name: "<white>%name%"
+  home-lore: "<gray><i>Click to view"
+
+  new-home-name: "<dark_gray>New Home"
+  new-home-lore: "<gray><i>Click to set home"
+
+  locked-name: "<red>Locked"
+  locked-lore: "<white>Buy <aqua>Rank<white> for more home slots"
+
+  center-bed-name: "<white>Homes"
+  center-bed-lore: "<gray><i>Save teleport locations"
+
+  next-page-name: "<white>Next Page"
+  next-page-lore: "<gray><i>Click to go to page %page%"
+  prev-page-name: "<white>Previous Page"
+  prev-page-lore: "<gray><i>Click to go to page %page%"
+  back-name: "<red>Back"
+  back-lore: "<gray><i>Click to go back"
+
+  teleport-name: "<white>Teleport"
+  teleport-lore: "<gray><i>Click to teleport"
+
+  rename-name: "<white>Rename"
+  rename-lore: "<gray><i>Click to rename"
+
+  icon-name: "<white>Icon"
+  icon-lore: "<gray><i>Click to select home icon"
+
+  delete-name: "<white>Delete"
+  delete-lore: "<gray><i>Click to delete"
+
+  current-icon-name: "<white>Current Icon"
+  current-icon-lore: "<gray><i>%icon_name%\n<gray><i>%home_name%"
+
+  default-icon-name: "<white>Default"
+  default-icon-lore: "<gray><i>Use the default bed icon."
+
+  search-name: "<white>Search"
+  search-lore: "<gray><i>Filter items"
+
+  icon-entry-lore: ""
+
+  sign-search-lines:
+    - ""
+    - "↑↑↑↑↑↑↑↑↑↑↑"
+    - "Search"
+    - ""
+
+# -------------------------------------------------------------
+# Feedback Messages
+# -------------------------------------------------------------
+messages:
+  home-set: "<gray>Home %slot% set"
+  home-deleted: "<gray>Home deleted"
+  teleported: "<gray>Teleported to Home %slot%"
+  limit-reached: "<red>You reached home limits"
+  slot-locked: "<red>You reached home limits"
+  home-not-set: "<red>Home %slot% is not set"
+  already-set: "<red>Home %slot% is already set"
+  invalid-slot: "<red>Invalid home slot (1-%max%)"
+  world-not-loaded: "<red>The world for Home %slot% is not loaded"
+  teleport-failed: "<red>Failed to teleport to Home %slot%"
+  rename-prompt: "<gray>Type the new home name in chat"
+  rename-cancelled: "<red>Home rename cancelled"
+  home-renamed: "<gray>Home %slot% renamed to <white>%name%"
+  icon-updated: "<gray>Home %slot% icon updated"
+  players-only: "<red>Only players can execute this command."
+  no-permission: "<red>You do not have permission to execute this command."
+  reloaded: "<gray>KnuaHome configuration and messages reloaded (max-homes=%max%, ranks=%ranks%)."
+  admin-usage: "<red>Usage: /knuahome reload"
+
+# -------------------------------------------------------------
+# Sounds Configuration
+# -------------------------------------------------------------
+# Sound names accept Bukkit Sound names (e.g. ENTITY_VILLAGER_NO)
+# or Minecraft resource keys (e.g. entity.villager.no / minecraft:entity.villager.no)
+sounds:
+  fail:
+    enabled: true
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 1.0
+  teleport:
+    enabled: false
+    sound: "ENTITY_ENDERMAN_TELEPORT"
+    volume: 1.0
+    pitch: 1.0
+  home-set:
+    enabled: false
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 1.2
+  home-deleted:
+    enabled: false
+    sound: "UI_BUTTON_CLICK"
+    volume: 1.0
+    pitch: 1.0

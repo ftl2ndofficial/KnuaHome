@@ -1,0 +1,28 @@
+# =============================================================
+# KnuaHome Configuration (Paper & Folia 1.21 - 26.3)
+# =============================================================
+
+# Maximum total home slots shown in the expanded Dialog UI (DonutSMP style: 100)
+max-homes: 100
+
+# Fallback home limit if a player does not match any rank or permission
+default-homes: 2
+
+# -------------------------------------------------------------
+# Rank Home Limits
+# -------------------------------------------------------------
+# How KnuaHome resolves a player's home limit:
+#   1. Direct numeric permission (works WITHOUT LuckPerms):
+#        knuahome.homes.<number>  or  knuahome.limit.<number>
+#      Example: granting "knuahome.homes.15" gives the player 15 home slots.
+#   2. Rank permissions (works WITHOUT LuckPerms):
+#        knuahome.rank.<rank_name>  or  group.<rank_name>
+#      Example: granting "knuahome.rank.vip" gives the VIP rank limit.
+#   3. LuckPerms groups (optional if LuckPerms is installed):
+#        Matches the player's inherited groups and primary group.
+#
+# If a player matches multiple ranks/permissions, the highest home limit is used.
+ranks:
+  default: 2
+  vip: 5
+  mvp: 10

@@ -1,0 +1,43 @@
+name: KnuaHome
+version: '1.0.0'
+main: com.ftl2nd.KnuaHomePlugin
+api-version: '1.21'
+folia-supported: true
+authors: [FTL2nd]
+description: Home management plugin with NMS Dialog UI (Paper & Folia 1.21 - 26.3)
+softdepend:
+  - LuckPerms
+  - PlaceholderAPI
+  - ViaVersion
+
+commands:
+  home:
+    description: Open the Homes Dialog UI or teleport to a specific home
+    aliases: [homes]
+    permission: knuahome.use
+  sethome:
+    description: Set a home at your current location
+    permission: knuahome.use
+  delhome:
+    description: Delete an existing home
+    permission: knuahome.use
+  knuahome:
+    description: Admin command for KnuaHome (/knuahome reload)
+    permission: knuahome.admin
+
+permissions:
+  knuahome.use:
+    description: Allows using /home, /sethome, /delhome
+    default: true
+  knuahome.admin:
+    description: Allows reloading KnuaHome configuration (/knuahome reload)
+    default: op
+  knuahome.rank.default:
+    description: Default rank home limit permission
+    default: true
+  knuahome.rank.vip:
+    description: VIP rank home limit permission
+    default: false
+  knuahome.rank.mvp:
+    description: MVP rank home limit permission
+    default: false

@@ -1,0 +1,24 @@
+# Test sources (keep locally, never commit)
+src/test/
+**/src/test/
+
+# Build & Gradle outputs
+.gradle/
+build/
+**/build/
+out/
+
+# Local Paper server jars & runtime data
+paper-jars/
+logs/
+*.log
+*.db
+*.db-wal
+*.db-shm
+
+# IDE & OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
